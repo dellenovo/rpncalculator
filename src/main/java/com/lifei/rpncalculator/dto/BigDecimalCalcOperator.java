@@ -17,4 +17,7 @@ public abstract class BigDecimalCalcOperator implements CalcOperator<BigDecimal>
     public CalcOperand<BigDecimal> getCalcResultNotation(CalcOperand<BigDecimal>... operands) throws Exception {
         return operate(operands);
     }
+
+    @Override
+    public String toString() { return getText();}
 }

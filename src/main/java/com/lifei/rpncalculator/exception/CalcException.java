@@ -1,5 +1,7 @@
 package com.lifei.rpncalculator.exception;
 
+import com.lifei.rpncalculator.dto.CalcOperator;
+
 public class CalcException extends Exception{
     private int code;
     private String msg;

@@ -15,26 +15,22 @@ public interface CalcOperator<N> extends Notation{
         int operandSize = getOperandSize();
         CalcOperand[] operands =  new CalcOperand[operandSize];
 
-        Deque<Notation> temp = new ArrayDeque<>();
+
+        //the order in the historyItem is as same as in the stack
+        Deque<Notation> historyItem = new ArrayDeque<>();
 
         // get operands but do not remove elements from the stack in case of lacking of operands
         for(int i=operandSize - 1; i>= 0; i--){
             Notation prevNotation = stack.peekLast();
 
-            ExceptionUtils.check(CalcOperand.class.isAssignableFrom(prevNotation.getClass()),
-                    new LackOfOperandException(getText()));
+            ExceptionUtils.check(prevNotation != null && CalcOperand.class.isAssignableFrom(prevNotation.getClass()),
+                    new LackOfOperandException(getText(), this));
 
             operands[i] = (CalcOperand)prevNotation;
-            temp.add(stack.removeLast());
+            historyItem.addFirst(stack.removeLast());
         }
 
-        //the order in the historyItem is as same as in the stack
-        Deque<Notation> historyItem = new LinkedList<>();
-
-        historyItem.add(this);
-        for(int i=0; i< operandSize; i++) {
-            historyItem.add(temp.removeLast());
-        }
+        historyItem.addLast(this);
 
         stack.add(getCalcResultNotation(operands));
 
