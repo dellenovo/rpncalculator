@@ -26,7 +26,7 @@ public class SqrtOperatorTest {
         assertThat(stack.getFirst().getText()).isEqualTo("1.1");
         assertThat(history).hasSize(1);
         assertThat(history.getFirst()).hasSize(2);
-        assertThat(history.getFirst().getFirst().getText()).isEqualTo("sqrt");
-        assertThat(history.getFirst().getLast().getText()).isEqualTo("1.21");
+        assertThat(history.getFirst().getFirst().getText()).isEqualTo("1.21");
+        assertThat(history.getFirst().getLast().getText()).isEqualTo("sqrt");
     }
 }

@@ -10,8 +10,6 @@ public interface CalcOperand<T> extends Notation {
 
     T getVal();
 
-    void setVal(T val);
-
     default void handle(Deque<Notation> stack, Deque<Deque<Notation>> history){
         stack.addLast(this);
         history.addLast(emptyDeque);// a placeholder

@@ -27,8 +27,9 @@ public class UndoOperatorTest {
         UndoOperator undoOperator = new UndoOperator();
         undoOperator.handle(stack, history);
 
-        assertThat(stack).hasSize(1);
+        assertThat(stack).hasSize(2);
         assertThat(stack.getFirst().getText()).isEqualTo("6");
+        assertThat(stack.getLast().getText()).isEqualTo("0.5");
         assertThat(history).isEmpty();
     }
 }

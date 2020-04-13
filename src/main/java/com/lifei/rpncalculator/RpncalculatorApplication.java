@@ -12,15 +12,18 @@ public class RpncalculatorApplication implements ApplicationRunner {
 	private RPNCalcEngine rpnCalcEngine;
 
 	public static void main(String[] args) {
-//		SpringApplication.run(RpncalculatorApplication.class, args);
 		new SpringApplicationBuilder(RpncalculatorApplication.class)
-				.web(WebApplicationType.NONE) // .REACTIVE, .SERVLET
+				.web(WebApplicationType.NONE)
 				.bannerMode(Banner.Mode.OFF)
 				.run(args);
 	}
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
+		// avoid being blocked in unit test
+		if(args.getSourceArgs().length > 0 && "test".equalsIgnoreCase(args.getSourceArgs()[0])) {
+			return;
+		}
 		rpnCalcEngine.calc();
 	}
 }

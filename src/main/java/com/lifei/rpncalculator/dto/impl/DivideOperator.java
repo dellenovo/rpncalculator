@@ -7,6 +7,7 @@ import com.lifei.rpncalculator.util.ExceptionUtils;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 
 @Component
 public class DivideOperator extends BigDecimalCalcOperator {
@@ -21,7 +22,7 @@ public class DivideOperator extends BigDecimalCalcOperator {
         ExceptionUtils.check(operands[1] != null, new LackOfOperandException("divisor", this));
         ExceptionUtils.check(operands[1].compareTo(BigDecimal.ZERO) != 0, new DividedByZeroException());
 
-        return operands[0].divide(operands[1]);
+        return operands[0].divide(operands[1], MathContext.DECIMAL64);
     }
 
     @Override

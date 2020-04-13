@@ -128,8 +128,6 @@ public class RPNCalcEngineTest extends RpncalculatorApplicationTests {
             assertThat(stack.getFirst().getText()).isEqualTo("9");
             assertThat(calcOperationHistory).hasSize(1);
             assertThat(calcOperationHistory.getLast()).isEmpty();
-//            assertThat(calcOperationHistory.getLast().getFirst().getText()).isEqualTo("9");
-//            assertThat(calcOperationHistory.getLast().getLast().getText()).isEqualTo("+");
         }finally {
             rpnCalcEngine.setScanner(systemInScanner);
         }
@@ -152,8 +150,6 @@ public class RPNCalcEngineTest extends RpncalculatorApplicationTests {
             assertThat(stack.getFirst().getText()).isEqualTo("81");
             assertThat(calcOperationHistory).hasSize(1);
             assertThat(calcOperationHistory.getLast()).isEmpty();
-//            assertThat(calcOperationHistory.getLast().getFirst().getText()).isEqualTo("9");
-//            assertThat(calcOperationHistory.getLast().getLast().getText()).isEqualTo("+");
         }finally {
             rpnCalcEngine.setScanner(systemInScanner);
         }
@@ -175,7 +171,6 @@ public class RPNCalcEngineTest extends RpncalculatorApplicationTests {
             assertThat(stack).hasSize(1);
             assertThat(stack.getFirst().getText()).isEqualTo("16");
             assertThat(calcOperationHistory).hasSize(3);
-//            assertThat(calcOperationHistory.getLast()).isEmpty();
             assertThat(calcOperationHistory.getLast().getFirst().getText()).isEqualTo("8");
             assertThat(calcOperationHistory.getLast().getLast().getText()).isEqualTo("*");
         }finally {

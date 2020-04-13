@@ -25,10 +25,7 @@ public class RPNCalcEngine extends CalcEngine {
 
     @Override
     protected void calc() {
-//        Scanner scanner = new Scanner("12, 42, 78, 99, 42");
 
-//        scanner.useDelimiter("\\s+");
-//        while (true) {
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
             int i = 0;

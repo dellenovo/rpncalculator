@@ -34,7 +34,7 @@ public class NotationParser implements ApplicationContextAware {
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        //根据接口类型返回相应的所有bean
+        //return all beans of interface Notation
         Map<String, Notation> map = applicationContext.getBeansOfType(Notation.class);
         for(Notation notation: map.values()) {
             notationMap.put(notation.getText(), notation);

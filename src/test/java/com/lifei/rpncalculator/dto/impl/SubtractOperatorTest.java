@@ -27,7 +27,7 @@ public class SubtractOperatorTest {
         assertThat(stack.getFirst().getText()).isEqualTo("-1");
         assertThat(history).hasSize(1);
         assertThat(history.getFirst()).hasSize(3);
-        assertThat(history.getFirst().getFirst().getText()).isEqualTo("-");
-        assertThat(history.getFirst().getLast().getText()).isEqualTo("2");
+        assertThat(history.getFirst().getFirst().getText()).isEqualTo("1");
+        assertThat(history.getFirst().getLast().getText()).isEqualTo("-");
     }
 }
